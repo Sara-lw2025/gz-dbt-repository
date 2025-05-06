@@ -1,4 +1,3 @@
-
 version: 2
 
 sources:
@@ -10,11 +9,54 @@ sources:
        - name: product
          identifier: raw_gz_product
          description: purchase price by produt_id
+         columns:
+           - name: products_id
+             description: unique id by product
+             tests:
+               - unique
+               - not_null
+           - name: purchase_price
+             description: price by product
        
        - name: ship
          identifier: raw_gz_ship
          description: shipping costs by order_id
+         columns:
+           - name: orders_id
+             description: number of order
+             tests:
+               - unique
+               - not_null
+           - name: shipping_fee
+             description: shipping_fee by order_id
+           - name: logCost
+             description: logistic cost by order_id
+           - name: shipping_cost
+             description: shipping cost by order_id
 
        - name: sales
          identifier: raw_gz_sales
-         description: revenue and qty by date, order and product
+         description: sales of Greenweez / we have on row per product_id found in each orders_id (revenue and qty)
+         loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+         freshness:
+           warn_after:
+            count: 90
+            period: day
+         columns:
+           - name: date_date
+             description: date of purchase          
+           - name: orders_id
+             description: orders id           
+           - name: products_id
+             description: product id by order and date
+           - name: revenue
+             description: revenue by order and date
+           - name: quantity
+             description: quantity sold by order and date
+         tests:
+          - unique:
+              column_name: (concat(orders_id, pdt_id))
+          - not_null:
+              column_name: orders_id
+          - not_null:
+              column_name: pdt_id

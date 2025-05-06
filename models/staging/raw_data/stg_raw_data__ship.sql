@@ -13,7 +13,7 @@ renamed as (
         -- remove shipping_fee_1 beacuse is duplicate
         shipping_fee,
         logcost,
-        CAST (ship_cost AS FLOAT64)
+        CAST (ship_cost AS FLOAT64) AS shipping_cost
 
     from source
 
