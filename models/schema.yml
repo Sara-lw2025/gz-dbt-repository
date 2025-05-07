@@ -140,3 +140,6 @@ models:
 
   - name: stg_raw_data__facebook
     description: advertising costs from facebook ads
+
+  - name: int_campaigns
+    description: advertising costs union
