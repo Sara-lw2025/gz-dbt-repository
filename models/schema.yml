@@ -60,3 +60,14 @@ sources:
               column_name: orders_id
           - not_null:
               column_name: pdt_id
+
+
+models:
+  - name: stg_raw_data__product
+    description: product raw data
+  - name: stg_raw_data__sales
+    description: sales raw data
+  - name: stg_raw_data__ship
+    description: ship raw data
+  - name: int_sales_margin
+    description: margin calculation
