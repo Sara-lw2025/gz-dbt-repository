@@ -80,5 +80,3 @@ models:
 
   - name: int_orders_operational
     description: operational margin calculation
-
-{{ config( materialized=finance_days) }}
