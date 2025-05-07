@@ -109,14 +109,7 @@ sources:
           - not_null:
               column_name: date_date
 
-       - name: int_campaigns_day
-         identifier: int_campaigns_day
-         description: advertising cost ALL by day
-         tests:
-          - unique:
-              column_name: date_date
-          - not_null:
-              column_name: date_date
+    
 
 
 models:
@@ -153,5 +146,14 @@ models:
   - name: int_campaigns
     description: advertising costs all ads companies
 
+
   - name: int_campaigns_day
     description: advertising costs all ads companies by day
+    tests:
+          - unique:
+              column_name: date_date
+          - not_null:
+              column_name: date_date
+
+
+         
