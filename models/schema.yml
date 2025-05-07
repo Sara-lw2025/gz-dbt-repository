@@ -108,10 +108,9 @@ sources:
               column_name: campaign_key
           - not_null:
               column_name: date_date
-          - dbt_utils.- accepted_range:
-              min_value: 0
-              config:
-                where: "ads_cost > 0"
+          - not_null:
+              column_name: ads_cost
+          
 
 
 
