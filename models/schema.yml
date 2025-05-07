@@ -62,6 +62,56 @@ sources:
               column_name: pdt_id
 
 
+
+       - name: adwords
+         identifier: raw_gz_adwords
+         description: advertising cost by campaign for adwords
+         tests:
+          - unique:
+              column_name: (concat(date_date, campaign_key))
+          - not_null:
+              column_name: campaign_key
+          - not_null:
+              column_name: date_date
+
+       - name: bing
+         identifier: raw_gz_bing
+         description: advertising cost by campaign for bing
+         tests:
+          - unique:
+              column_name: (concat(date_date, campaign_key))
+          - not_null:
+              column_name: campaign_key
+          - not_null:
+              column_name: date_date
+
+
+       - name: criteo
+         identifier: raw_gz_criteo
+         description: advertising cost by campaign for criteo
+         tests:
+          - unique:
+              column_name: (concat(date_date, campaign_key))
+          - not_null:
+              column_name: campaign_key
+          - not_null:
+              column_name: date_date
+
+
+       - name: facebook
+         identifier: raw_gz_facebook
+         description: advertising cost by campaign for facebook
+         tests:
+          - unique:
+              column_name: (concat(date_date, campaign_key))
+          - not_null:
+              column_name: campaign_key
+          - not_null:
+              column_name: date_date
+
+    
+
+
 models:
   - name: stg_raw_data__product
     description: product raw data
@@ -79,4 +129,38 @@ models:
     description: margin calculation by order
 
   - name: int_orders_operational
-    description: operational margin calculation
+    description: operational margin calculation~
+
+  - name: stg_raw_data__adwords
+    description: advertising costs from adwords ads
+
+  - name: stg_raw_data__bing
+    description: advertising costs from bing ads
+
+  - name: stg_raw_data__criteo
+    description: advertising costs from criteo ads
+
+  - name: stg_raw_data__facebook
+    description: advertising costs from facebook ads
+
+  - name: int_campaigns
+    description: advertising costs all ads companies
+
+
+  - name: int_campaigns_day
+    description: advertising costs all ads companies by day
+    tests:
+          - unique:
+              column_name: date_date
+          - not_null:
+              column_name: date_date
+
+  - name: finance_campaigns_day
+    description: finance data by day with campaing costs
+    tests:
+          - unique:
+              column_name: date_date
+          - not_null:
+              column_name: date_date
+
+         
