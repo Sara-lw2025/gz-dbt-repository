@@ -15,4 +15,4 @@
  GROUP BY  date_date
  ORDER BY  date_date DESC
 
-{{ config(materialized=finance_days) }}
+{{ config( materialized=finance_days) }}
