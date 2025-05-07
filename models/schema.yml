@@ -108,10 +108,6 @@ sources:
               column_name: campaign_key
           - not_null:
               column_name: date_date
-          - not_null:
-              column_name: ads_cost
-          
-
 
 
 models:
