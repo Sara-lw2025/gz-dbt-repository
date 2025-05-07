@@ -62,6 +62,18 @@ sources:
               column_name: pdt_id
 
 
+
+       - name: adwords
+         identifier: raw_gz_adwords
+         description: advertising cost by campaign for adwords
+         tests:
+          - unique:
+              column_name: (concat(date_date, campaign_key))
+          - not_null:
+              column_name: campaign_key
+          - not_null:
+              column_name: date_date
+
 models:
   - name: stg_raw_data__product
     description: product raw data
