@@ -126,4 +126,16 @@ models:
     description: margin calculation by order
 
   - name: int_orders_operational
-    description: operational margin calculation
+    description: operational margin calculation~
+
+  - name: stg_raw_data__adwords
+    description: advertising costs from adwords ads
+
+  - name: stg_raw_data__bing
+    description: advertising costs from bing ads
+
+  - name: stg_raw_data__criteo
+    description: advertising costs from criteo ads
+
+  - name: stg_raw_data__facebook
+    description: advertising costs from facebook ads
